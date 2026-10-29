@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="imagenes">
+    <file>espania.png</file>
+    <file>eeuu.png</file>
+  </qresource>
+</RCC>
