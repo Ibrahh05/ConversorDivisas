@@ -75,7 +75,7 @@
        <item row="1" column="0">
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
-          <widget class="QLabel" name="label_4">
+          <widget class="QLabel" name="logoEsp">
            <property name="maximumSize">
             <size>
              <width>68</width>
@@ -99,7 +99,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_2">
+          <widget class="QLabel" name="texto_euros">
            <property name="maximumSize">
             <size>
              <width>16777215</width>
@@ -127,7 +127,7 @@
        <item row="1" column="1">
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
-          <widget class="QLabel" name="label_5">
+          <widget class="QLabel" name="logoEu">
            <property name="maximumSize">
             <size>
              <width>68</width>
@@ -146,7 +146,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_3">
+          <widget class="QLabel" name="texto_dolares">
            <property name="font">
             <font>
              <pointsize>16</pointsize>
@@ -163,7 +163,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QLabel" name="label">
+     <widget class="QLabel" name="tipoConversion">
       <property name="maximumSize">
        <size>
         <width>16777215</width>
@@ -230,6 +230,7 @@
  </widget>
  <resources>
   <include location="recursos.qrc"/>
+  <include location="../../.designer/backup/recursos.qrc"/>
  </resources>
  <connections/>
 </ui>
