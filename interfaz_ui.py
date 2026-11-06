@@ -20,26 +20,27 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout
     QPushButton, QSizePolicy, QSpinBox, QStatusBar,
     QVBoxLayout, QWidget)
 import recursos_rc
-import recursos_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(849, 837)
+        MainWindow.resize(896, 870)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout_3 = QVBoxLayout(self.centralwidget)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.titulo = QLineEdit(self.centralwidget)
-        self.titulo.setObjectName(u"titulo")
+        self.label = QLabel(self.centralwidget)
+        self.label.setObjectName(u"label")
+        self.label.setEnabled(True)
+        self.label.setMinimumSize(QSize(0, 0))
+        self.label.setMaximumSize(QSize(16777215, 30))
         font = QFont()
-        font.setPointSize(16)
-        self.titulo.setFont(font)
-        self.titulo.setEchoMode(QLineEdit.EchoMode.Normal)
-        self.titulo.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        font.setPointSize(22)
+        self.label.setFont(font)
+        self.label.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_3.addWidget(self.titulo)
+        self.verticalLayout_3.addWidget(self.label)
 
         self.gridWidget = QWidget(self.centralwidget)
         self.gridWidget.setObjectName(u"gridWidget")
@@ -51,54 +52,56 @@ class Ui_MainWindow(object):
         self.cantidadResultado.setObjectName(u"cantidadResultado")
         self.cantidadResultado.setEnabled(False)
         self.cantidadResultado.setMaximumSize(QSize(365, 16777215))
-        self.cantidadResultado.setFont(font)
+        font1 = QFont()
+        font1.setPointSize(16)
+        self.cantidadResultado.setFont(font1)
 
         self.gridLayout.addWidget(self.cantidadResultado, 4, 1, 1, 1)
 
         self.cantidadIntroducida = QSpinBox(self.gridWidget)
         self.cantidadIntroducida.setObjectName(u"cantidadIntroducida")
-        self.cantidadIntroducida.setFont(font)
+        self.cantidadIntroducida.setFont(font1)
 
         self.gridLayout.addWidget(self.cantidadIntroducida, 4, 0, 1, 1)
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.logoEsp = QLabel(self.gridWidget)
-        self.logoEsp.setObjectName(u"logoEsp")
-        self.logoEsp.setMaximumSize(QSize(68, 68))
-        self.logoEsp.setFont(font)
-        self.logoEsp.setPixmap(QPixmap(u":/imagenes/espania.png"))
-        self.logoEsp.setScaledContents(True)
+        self.logo1 = QLabel(self.gridWidget)
+        self.logo1.setObjectName(u"logo1")
+        self.logo1.setMaximumSize(QSize(68, 68))
+        self.logo1.setFont(font1)
+        self.logo1.setPixmap(QPixmap(u":/imagenes/espania.png"))
+        self.logo1.setScaledContents(True)
 
-        self.horizontalLayout.addWidget(self.logoEsp)
+        self.horizontalLayout.addWidget(self.logo1)
 
-        self.texto_euros = QLabel(self.gridWidget)
-        self.texto_euros.setObjectName(u"texto_euros")
-        self.texto_euros.setMaximumSize(QSize(16777215, 61))
-        self.texto_euros.setFont(font)
-        self.texto_euros.setTabletTracking(False)
-        self.texto_euros.setMargin(0)
+        self.textoDivisa1 = QLabel(self.gridWidget)
+        self.textoDivisa1.setObjectName(u"textoDivisa1")
+        self.textoDivisa1.setMaximumSize(QSize(16777215, 61))
+        self.textoDivisa1.setFont(font1)
+        self.textoDivisa1.setTabletTracking(False)
+        self.textoDivisa1.setMargin(0)
 
-        self.horizontalLayout.addWidget(self.texto_euros)
+        self.horizontalLayout.addWidget(self.textoDivisa1)
 
 
         self.gridLayout.addLayout(self.horizontalLayout, 1, 0, 1, 1)
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.logoEu = QLabel(self.gridWidget)
-        self.logoEu.setObjectName(u"logoEu")
-        self.logoEu.setMaximumSize(QSize(68, 68))
-        self.logoEu.setPixmap(QPixmap(u":/imagenes/eeuu.png"))
-        self.logoEu.setScaledContents(True)
+        self.logo2 = QLabel(self.gridWidget)
+        self.logo2.setObjectName(u"logo2")
+        self.logo2.setMaximumSize(QSize(68, 68))
+        self.logo2.setPixmap(QPixmap(u":/imagenes/eeuu.png"))
+        self.logo2.setScaledContents(True)
 
-        self.horizontalLayout_2.addWidget(self.logoEu)
+        self.horizontalLayout_2.addWidget(self.logo2)
 
-        self.texto_dolares = QLabel(self.gridWidget)
-        self.texto_dolares.setObjectName(u"texto_dolares")
-        self.texto_dolares.setFont(font)
+        self.textoDivisa2 = QLabel(self.gridWidget)
+        self.textoDivisa2.setObjectName(u"textoDivisa2")
+        self.textoDivisa2.setFont(font1)
 
-        self.horizontalLayout_2.addWidget(self.texto_dolares)
+        self.horizontalLayout_2.addWidget(self.textoDivisa2)
 
 
         self.gridLayout.addLayout(self.horizontalLayout_2, 1, 1, 1, 1)
@@ -109,7 +112,7 @@ class Ui_MainWindow(object):
         self.tipoConversion = QLabel(self.centralwidget)
         self.tipoConversion.setObjectName(u"tipoConversion")
         self.tipoConversion.setMaximumSize(QSize(16777215, 30))
-        self.tipoConversion.setFont(font)
+        self.tipoConversion.setFont(font1)
         self.tipoConversion.setMargin(0)
 
         self.verticalLayout_3.addWidget(self.tipoConversion)
@@ -118,20 +121,20 @@ class Ui_MainWindow(object):
         self.seleccionarDivisa.addItem("")
         self.seleccionarDivisa.addItem("")
         self.seleccionarDivisa.setObjectName(u"seleccionarDivisa")
-        self.seleccionarDivisa.setFont(font)
+        self.seleccionarDivisa.setFont(font1)
 
         self.verticalLayout_3.addWidget(self.seleccionarDivisa)
 
         self.botonConvertir = QPushButton(self.centralwidget)
         self.botonConvertir.setObjectName(u"botonConvertir")
-        self.botonConvertir.setFont(font)
+        self.botonConvertir.setFont(font1)
 
         self.verticalLayout_3.addWidget(self.botonConvertir)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 849, 22))
+        self.menubar.setGeometry(QRect(0, 0, 896, 26))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -144,11 +147,11 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Conversor de divisas", None))
-        self.titulo.setText(QCoreApplication.translate("MainWindow", u"Conversor de divisas", None))
-        self.logoEsp.setText("")
-        self.texto_euros.setText(QCoreApplication.translate("MainWindow", u"Cantidad en euros ( \u20ac )", None))
-        self.logoEu.setText("")
-        self.texto_dolares.setText(QCoreApplication.translate("MainWindow", u"Cantidad en dolares ( $ )", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"Conversor de divisas", None))
+        self.logo1.setText("")
+        self.textoDivisa1.setText(QCoreApplication.translate("MainWindow", u"Cantidad en euros ( \u20ac )", None))
+        self.logo2.setText("")
+        self.textoDivisa2.setText(QCoreApplication.translate("MainWindow", u"Cantidad en dolares ( $ )", None))
         self.tipoConversion.setText(QCoreApplication.translate("MainWindow", u"Tipo de conversi\u00f3n", None))
         self.seleccionarDivisa.setItemText(0, QCoreApplication.translate("MainWindow", u"Euro ( \u20ac ) -> Dolar ( $ )", None))
         self.seleccionarDivisa.setItemText(1, QCoreApplication.translate("MainWindow", u"Dolar ( $ ) -> Euro ( \u20ac )", None))
