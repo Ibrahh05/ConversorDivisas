@@ -1,5 +1,5 @@
 from PySide6.QtGui import QPixmap
-from PySide6.QtWidgets import QApplication, QMainWindow
+from PySide6.QtWidgets import QApplication, QMainWindow,QMessageBox
 
 from interfaz_ui import Ui_MainWindow
 
@@ -12,10 +12,22 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.botonConvertir.clicked.connect(self.conversor_divisas)
         self.seleccionarDivisa.currentIndexChanged.connect(self.cambiar_posicionesself)
 
+        menu = self.menuBar()
+        fileMenu = menu.addMenu("Archivo")
+
+        acccionSalir = fileMenu.addAction("Salir")
+        acccionSalir.triggered.connect(self.salir)
+
+
+    def salir(self):
+        box = QMessageBox.question(self, "Salir", "¿Seguro que quieres salir de la aplicación?", QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
+        if box == QMessageBox.StandardButton.Yes:
+            app.exit()
 
 
 
-    def conversor_divisas(self,cantidad):
+
+    def conversor_divisas(self):
         #  tipo = self.seleccionarDivisa()
         #  tipo = tipo.text()
         valor = self.cantidadIntroducida.value()

@@ -16,9 +16,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout,
-    QLabel, QLineEdit, QMainWindow, QMenuBar,
-    QPushButton, QSizePolicy, QSpinBox, QStatusBar,
-    QVBoxLayout, QWidget)
+    QLabel, QLayout, QLineEdit, QMainWindow,
+    QMenuBar, QPushButton, QSizePolicy, QSpacerItem,
+    QSpinBox, QStatusBar, QVBoxLayout, QWidget)
 import recursos_rc
 
 class Ui_MainWindow(object):
@@ -26,6 +26,8 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(896, 870)
+        MainWindow.setFocusPolicy(Qt.WheelFocus)
+        MainWindow.setContextMenuPolicy(Qt.PreventContextMenu)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout_3 = QVBoxLayout(self.centralwidget)
@@ -42,27 +44,43 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.label)
 
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_3.addItem(self.verticalSpacer_2)
+
         self.gridWidget = QWidget(self.centralwidget)
         self.gridWidget.setObjectName(u"gridWidget")
         self.gridWidget.setMaximumSize(QSize(16777215, 185))
         self.gridLayout = QGridLayout(self.gridWidget)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(-1, 0, -1, -1)
-        self.cantidadResultado = QLineEdit(self.gridWidget)
-        self.cantidadResultado.setObjectName(u"cantidadResultado")
-        self.cantidadResultado.setEnabled(False)
-        self.cantidadResultado.setMaximumSize(QSize(365, 16777215))
-        font1 = QFont()
-        font1.setPointSize(16)
-        self.cantidadResultado.setFont(font1)
-
-        self.gridLayout.addWidget(self.cantidadResultado, 4, 1, 1, 1)
-
         self.cantidadIntroducida = QSpinBox(self.gridWidget)
         self.cantidadIntroducida.setObjectName(u"cantidadIntroducida")
+        font1 = QFont()
+        font1.setPointSize(16)
         self.cantidadIntroducida.setFont(font1)
+        self.cantidadIntroducida.setMaximum(999999999)
 
         self.gridLayout.addWidget(self.cantidadIntroducida, 4, 0, 1, 1)
+
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.logo2 = QLabel(self.gridWidget)
+        self.logo2.setObjectName(u"logo2")
+        self.logo2.setMaximumSize(QSize(68, 68))
+        self.logo2.setPixmap(QPixmap(u":/imagenes/eeuu.png"))
+        self.logo2.setScaledContents(True)
+
+        self.horizontalLayout_2.addWidget(self.logo2)
+
+        self.textoDivisa2 = QLabel(self.gridWidget)
+        self.textoDivisa2.setObjectName(u"textoDivisa2")
+        self.textoDivisa2.setFont(font1)
+
+        self.horizontalLayout_2.addWidget(self.textoDivisa2)
+
+
+        self.gridLayout.addLayout(self.horizontalLayout_2, 1, 1, 1, 1)
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -87,27 +105,20 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addLayout(self.horizontalLayout, 1, 0, 1, 1)
 
-        self.horizontalLayout_2 = QHBoxLayout()
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.logo2 = QLabel(self.gridWidget)
-        self.logo2.setObjectName(u"logo2")
-        self.logo2.setMaximumSize(QSize(68, 68))
-        self.logo2.setPixmap(QPixmap(u":/imagenes/eeuu.png"))
-        self.logo2.setScaledContents(True)
+        self.cantidadResultado = QLineEdit(self.gridWidget)
+        self.cantidadResultado.setObjectName(u"cantidadResultado")
+        self.cantidadResultado.setEnabled(False)
+        self.cantidadResultado.setMaximumSize(QSize(365, 16777215))
+        self.cantidadResultado.setFont(font1)
 
-        self.horizontalLayout_2.addWidget(self.logo2)
-
-        self.textoDivisa2 = QLabel(self.gridWidget)
-        self.textoDivisa2.setObjectName(u"textoDivisa2")
-        self.textoDivisa2.setFont(font1)
-
-        self.horizontalLayout_2.addWidget(self.textoDivisa2)
-
-
-        self.gridLayout.addLayout(self.horizontalLayout_2, 1, 1, 1, 1)
+        self.gridLayout.addWidget(self.cantidadResultado, 4, 1, 1, 1)
 
 
         self.verticalLayout_3.addWidget(self.gridWidget)
+
+        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_3.addItem(self.verticalSpacer_3)
 
         self.tipoConversion = QLabel(self.centralwidget)
         self.tipoConversion.setObjectName(u"tipoConversion")
@@ -125,11 +136,33 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.seleccionarDivisa)
 
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_3.addItem(self.verticalSpacer)
+
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setSpacing(7)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.horizontalLayout_3.setSizeConstraint(QLayout.SetDefaultConstraint)
+        self.horizontalLayout_3.setContentsMargins(-1, 0, -1, -1)
         self.botonConvertir = QPushButton(self.centralwidget)
         self.botonConvertir.setObjectName(u"botonConvertir")
+        self.botonConvertir.setMaximumSize(QSize(500, 40))
         self.botonConvertir.setFont(font1)
+        self.botonConvertir.setAutoFillBackground(False)
+        self.botonConvertir.setAutoDefault(False)
 
-        self.verticalLayout_3.addWidget(self.botonConvertir)
+        self.horizontalLayout_3.addWidget(self.botonConvertir)
+
+        self.botonSalir = QPushButton(self.centralwidget)
+        self.botonSalir.setObjectName(u"botonSalir")
+        self.botonSalir.setMaximumSize(QSize(500, 40))
+        self.botonSalir.setFont(font1)
+
+        self.horizontalLayout_3.addWidget(self.botonSalir)
+
+
+        self.verticalLayout_3.addLayout(self.horizontalLayout_3)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
@@ -142,20 +175,24 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
+        self.botonConvertir.setDefault(False)
+
+
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Conversor de divisas", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Conversor de divisas", None))
-        self.logo1.setText("")
-        self.textoDivisa1.setText(QCoreApplication.translate("MainWindow", u"Cantidad en euros ( \u20ac )", None))
         self.logo2.setText("")
         self.textoDivisa2.setText(QCoreApplication.translate("MainWindow", u"Cantidad en dolares ( $ )", None))
+        self.logo1.setText("")
+        self.textoDivisa1.setText(QCoreApplication.translate("MainWindow", u"Cantidad en euros ( \u20ac )", None))
         self.tipoConversion.setText(QCoreApplication.translate("MainWindow", u"Tipo de conversi\u00f3n", None))
         self.seleccionarDivisa.setItemText(0, QCoreApplication.translate("MainWindow", u"Euro ( \u20ac ) -> Dolar ( $ )", None))
         self.seleccionarDivisa.setItemText(1, QCoreApplication.translate("MainWindow", u"Dolar ( $ ) -> Euro ( \u20ac )", None))
 
         self.botonConvertir.setText(QCoreApplication.translate("MainWindow", u"Convertir", None))
+        self.botonSalir.setText(QCoreApplication.translate("MainWindow", u"Salir", None))
     # retranslateUi
 
